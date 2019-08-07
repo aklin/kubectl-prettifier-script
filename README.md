@@ -3,6 +3,8 @@
 
 ## Installation
 
+Requires [`highlight`][1].
+
 Edit your shell resource file (`~/.bashrc`, `~/.zshrc`, `~/.shrc` etc):
 
 
@@ -18,3 +20,5 @@ function kubectl-wrapper () {
 }
 
 ```
+
+[1]: http://manpages.ubuntu.com/manpages/cosmic/man1/highlight.1.html

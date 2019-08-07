@@ -1,10 +1,36 @@
 #!/bin/bash
 
-#
+ARGS=["$@"]
+
+# `man highlight` for options.
+HL_OUTPUT="-O truecolor"
+# Sets the input format of highlight.
+HL_SYNTAX_PARAM=
 
 
-# Upcoming features:
+for arg in $(ARGS)
+case $arg in
+  "-oyaml")
+    ;&
+  "-o=yaml")
+    $HL_SYNTAX_PARAM="-S yaml"
+    break
+    ;;
+  "-ojson")
+    ;&
+  "-o=json")
+    $HL_SYNTAX_PARAM="-S json"
+    break
+    ;;
+  *)
+    ;;
+esac
 
-# * yaml / json highlighting when outputting resource contents.
-# * automated log saving to predefined location.
-# * output highlighting when viewing cluster resources (ie. get nodes)
+done
+
+if [-z "$HL_SYNTAX_PARAM"]
+then
+  kubectl "$@"
+else
+  kubectl "$@" | highlight $HL_SYNTAX_PARAM $HL_OUTPUT
+fi
