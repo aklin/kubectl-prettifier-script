@@ -6,6 +6,8 @@ ARGS=["$@"]
 HL_OUTPUT="-O truecolor"
 # Sets the input format of highlight.
 HL_SYNTAX_PARAM=
+# Pipe final output through this command
+#POST=| less
 
 
 for arg in $(ARGS)
@@ -32,5 +34,5 @@ if [-z "$HL_SYNTAX_PARAM"]
 then
   kubectl "$@"
 else
-  kubectl "$@" | highlight $HL_SYNTAX_PARAM $HL_OUTPUT
+  kubectl "$@" | highlight $HL_SYNTAX_PARAM $HL_OUTPUT $HL_TAIL
 fi
