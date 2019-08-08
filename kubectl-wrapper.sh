@@ -7,38 +7,33 @@ HL_OUTPUT="-O truecolor"
 # Sets the input format of highlight.
 HL_SYNTAX_PARAM=
 
-# Detect yaml or json output and highlight accordingly.
-function detect_hl {
+# Parse parameters
+function detect_params {
   arr=("$@")
 
-  for arg in "${arr[@]}"; do
+  for i in "${!arr[@]}"; do
+    arg="${arr[$i]}"
 
-    case $arg in
-#      -o*)
-        ;;
-      "-oyaml")
-        ;&
-      "-o=yaml")
+    # param starts with -o
+    if [[ $arg == -o* ]]; then
+
+      # combine current and next parameter
+      match="$arg${arr[$((i+1))]}"
+
+      if [[ $match == -o*yaml ]]; then
         HL_SYNTAX_PARAM="-S yaml"
         break
-        ;;
-      "-ojson")
-        ;&
-      "-o=json")
+
+      elif [[ $match == -o*json ]]; then
         HL_SYNTAX_PARAM="-S json"
         break
-        ;;
-      *)
-        ;;
-    esac
+      fi
+    fi
   done
 }
 
-
-# TODO: Support space between arguments - `-o yaml`
-
-detect_hl "$@"
-
+detect_params "$@"
+echo "$HL_SYNTAX_PARAM"
 
 if [ -z "$HL_SYNTAX_PARAM" ]
 then
