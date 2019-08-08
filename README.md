@@ -13,6 +13,8 @@
 
 ## Supported Systems
 
+| System  | Supported |
+|---------|-----------|
 | Linux   | ✓ |
 | OSX     | ✗ |
 | Windows | ✗ |
