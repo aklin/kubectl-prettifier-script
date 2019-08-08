@@ -1,4 +1,6 @@
 #!/bin/bash
+# VERSION 1.0-beta
+# https://git.io/fj7Te
 
 # `man highlight` for options.
 HL_OUTPUT="-O truecolor"
