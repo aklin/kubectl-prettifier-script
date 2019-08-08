@@ -11,5 +11,11 @@
 1. (Optional) Alias: `alias kubectl="kubectl prettify"`.
 
 
+## Supported Systems
+
+| Linux   | ✓ |
+| OSX     | ✗ |
+| Windows | ✗ |
+
 [1]: http://manpages.ubuntu.com/manpages/cosmic/man1/highlight.1.html
 [2]: https://github.com/aklin/kubectl-prettifier-script/blob/master/kubectl-wrapper.sh
