@@ -8,7 +8,5 @@
 1. Copy the script contents into the new file.
 1. (Optional) Alias: `alias kubectl="kubectl prettify"`.
 
-Edit your shell resource file (`~/.bashrc`, `~/.zshrc`, `~/.shrc` etc):
-
 
 [1]: http://manpages.ubuntu.com/manpages/cosmic/man1/highlight.1.html
