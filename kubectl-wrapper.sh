@@ -33,7 +33,6 @@ function detect_params {
 }
 
 detect_params "$@"
-echo "$HL_SYNTAX_PARAM"
 
 if [ -z "$HL_SYNTAX_PARAM" ]
 then
